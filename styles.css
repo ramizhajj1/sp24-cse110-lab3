@@ -1,28 +1,48 @@
+:root {
+    --main-bg-color: #f4f4f4;
+    --accent-color: color(mix(in srgb, limegreen, deeppink 50%));
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    background: var(--main-bg-color, #fff); /* Fallback included */
     color: #333;
 }
 
 header, section, footer {
     background: #fff;
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
     border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-h1, h2, h3, h4 {
-    color: #444;
+h1 {
+    color: hsl(0, 100%, 50%);
+}
+
+h2 {
+    color: rgba(0, 0, 255, 0.5);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ol {
+    list-style-type: decimal;
+    padding-left: 20px;
 }
 
 #media img, #media audio, #media video {
     width: 100%;
     max-width: 600px;
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 footer {
@@ -30,10 +50,27 @@ footer {
     font-size: 0.8em;
 }
 
-ul {
-    list-style-type: none;
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-ol {
-    list-style-type: decimal;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Responsive grid layout for smaller devices */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        padding: 20px;
+    }
 }
