@@ -3,39 +3,87 @@
     --accent-color: color(mix(in srgb, limegreen, deeppink 50%));
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: var(--main-bg-color, #fff); /* Fallback included */
+    background: var(--main-bg-color, #fff); 
     color: #333;
 }
 
 header, section, footer {
     background: #fff;
-    margin: 20px auto;
-    padding: 20px;
+    padding: 15px;
+    margin-bottom: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
 }
 
-h1 {
-    color: hsl(0, 100%, 50%);
+section {
+    background: var(--main-bg-color);
 }
 
-h2 {
-    color: rgba(0, 0, 255, 0.5);
+#new-business {
+    background-color: #e0e0f0;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-ol {
-    list-style-type: decimal;
-    padding-left: 20px;
+input[type="text"] {
+    border: 2px solid #ccc;
+}
+
+a:hover {
+    color: #555;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    color: darkblue;
+}
+
+section ol li {
+    color: darkblue;
+}
+
+section > h4 {
+    color: darkred;
+}
+
+h1 ~ h2 {
+    font-size: 18px;
+}
+
+h2 + h3 {
+    margin-top: 5px;
+}
+
+section.attendance {
+    border: 1px solid #000;
+}
+
+section:has(> div) {
+    border: 2px solid green;
+}
+
+@media (max-width: 600px) {
+    section {
+        background-color: var(--main-bg-color);
+    }
+
+    .flex-container {
+        flex-direction: row;
+    }
 }
 
 #media img, #media audio, #media video {
@@ -50,27 +98,12 @@ footer {
     font-size: 0.8em;
 }
 
-.flex-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr; /* Responsive grid layout for smaller devices */
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    body {
-        padding: 20px;
-    }
+ol {
+    list-style-type: decimal;
+    padding-left: 20px;
 }
